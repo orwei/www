@@ -1,0 +1,42 @@
+{% extends '__base__.html' %}
+
+{% block title %}日志{% endblock %}
+
+{% block beforehead %}
+
+<script>
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="uk-width-medium-3-4">
+    {% for blog in blogs %}
+        <article class="uk-article">
+            <h2><a href="/blog/{{ blog.id }}">{{ blog.name }}</a></h2>
+            <p class="uk-article-meta">发表于{{ blog.created_at|datetime }}</p>
+            <p>{{ blog.summary }}</p>
+            <p><a href="/blog/{{ blog.id }}">继续阅读 <i class="uk-icon-angle-double-right"></i></a></p>
+        </article>
+        <hr class="uk-article-divider">
+    {% endfor %}
+    </div>
+
+    <div class="uk-width-medium-1-4">
+        <div class="uk-panel uk-panel-header">
+            <h3 class="uk-panel-title">友情链接</h3>
+            <ul class="uk-list uk-list-line">
+                <li><i class="uk-icon-thumbs-o-up"></i>
+                    <a target="_blank" href="https://user.qzone.qq.com/1414127193/infocenter?ptsig=ugUcOFirMkihI2DCaA7Qc7FkRxpwaVyC28FPAmbULak_">
+                        QQ空间</a>
+                </li>
+                <li><i class="uk-icon-thumbs-o-up"></i>
+                    <a target="_blank" href="http://weibo.com/huazhongkeda123/profile?rightmod=1&wvr=6&mod=personnumber&is_all=1#_rnd1493382785424">
+                        新浪微博</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
